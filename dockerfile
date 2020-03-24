@@ -4,7 +4,7 @@ FROM centos:centos7.7.1908
 USER root
 RUN yum update -y
 RUN yum install docker wget -y
-RUN usermod -aG docker jenkins
+RUN systemctl enable docker && systemctl start docker
 
 # Jenknins requires java to run
 RUN yum install java-1.8.0-openjdk -y
@@ -14,6 +14,7 @@ RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stabl
 RUN rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 RUN yum install jenkins -y
 RUN systemctl enable jenkins && systemctl start jenkins
+RUN usermod -aG docker jenkins
 
 # configure the firewall
 RUN firewall-cmd --permanent --new-service=jenkins
