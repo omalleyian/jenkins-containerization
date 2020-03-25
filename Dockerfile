@@ -1,13 +1,10 @@
-FROM jenkinsci/jenkins:lts
- 
+FROM centos:centos7.7.1908
+# normal updates and docker
 USER root
-RUN apt-get update -qq \
-    && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common 
-RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-RUN add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
-RUN apt-get update  -qq \
-    && apt-get install docker-ce=17.12.1~ce-0~debian -y
-RUN usermod -aG docker jenkins
+# commenting out updates
+# RUN yum update -y
+# Jenknins requires java to run
+RUN yum install java-1.8.0-openjdk -y
+# install jenkins
+RUN mkdir /opt/jenkins
+RUN curl http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.204.5/jenkins.war -o /opt/jenkins/jenkins.war
