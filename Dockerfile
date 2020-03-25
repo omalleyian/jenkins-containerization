@@ -1,10 +1,14 @@
+# Standard centos image
 FROM centos:centos7.7.1908
-# normal updates and docker
+
 USER root
-# commenting out updates
-# RUN yum update -y
-# Jenknins requires java to run
-RUN yum install java-1.8.0-openjdk -y
-# install jenkins
+
+# Grab packages this container would need and place them in mounted volume to save space
+#   and then install them
+ADD packages /packages
+RUN yum install /packages/*.rpm -y
+
+# drop the Jenkins war file in a reasonable location and set it as the default command
 RUN mkdir /opt/jenkins
-RUN curl http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.204.5/jenkins.war -o /opt/jenkins/jenkins.war
+COPY jenkins.war /opt/jenkins/jenkins.war
+CMD ["/usr/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
