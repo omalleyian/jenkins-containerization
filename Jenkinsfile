@@ -1,7 +1,7 @@
 
 pipeline {
-    node('app-server') {
-        stages {
+    agent 'app-server'
+    stages {
         stage('Build Services') {
             steps {
                 echo 'Building all necessary services.'
@@ -12,6 +12,5 @@ pipeline {
                 echo 'Building client.'
             }
         }
-    }
     }
 }
