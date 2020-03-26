@@ -1,6 +1,6 @@
 
 pipeline {
-    agent 'app-server'
+    agent {label 'app-server'}
     stages {
         stage('Build Services') {
             steps {
