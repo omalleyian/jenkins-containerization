@@ -55,7 +55,8 @@ Add this:
 
 
     allow init_t var_log_t:file create;
-
+    
+# Create module
     sudo make -f /usr/share/selinux/devel/Makefile jboss-eap-rhel.pp
     sudo semodule -i jboss-eap-rhel.pp
 
