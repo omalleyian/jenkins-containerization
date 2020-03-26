@@ -28,8 +28,10 @@ This could be rolled into the Dockerfile. The image builds a lot faster when you
 
 ```bash
 mkdir packages
-# start up vanilla version of docker image we are basing our image one
-docker run -it -v /path/to/your/workingdir/packages:/packages centos:centos7.7.1908 bash
+# start up vanilla version of docker image we are basing our image on, note that
+#   we are running this command from the working directory where packages dir was
+#   created
+docker run -it -v "$(pwd)"/packages:/packages centos:centos7.7.1908 bash
 # The below command is run inside the container shell that just started
 yum install --downloadonly --downloaddir=/packages java-1.8.0-openjdk
 ```
@@ -48,7 +50,7 @@ FROM centos:centos7.7.1908
 USER root
 
 ADD packages /packages
-RUN yum install /packages/*.rpm -y
+RUN rpm -Uvh install /packages/*.rpm
 
 RUN mkdir /opt/jenkins
 COPY jenkins.war /opt/jenkins/jenkins.war
