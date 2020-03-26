@@ -10,7 +10,6 @@ pipeline {
         stage('Build Client') {
             steps {
                 echo 'Building client.'
-                sh 'npm install'
             }
         }
     }
