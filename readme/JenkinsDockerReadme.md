@@ -20,7 +20,7 @@ Setup, build, and deploy of Docker Jenkins container.
 
 Note that this is the actual download link, the DL link on the website redirects to this.
 
-`curl http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.204.5/jenkins.war -o jenkins.war`
+`curl http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.204.5/jenkins.war -o linuxpackages/jenkins.war`
 
 ## Download Packages
 
@@ -49,7 +49,7 @@ ADD linuxpackages /linuxpackages
 RUN rpm -Uvh install /linuxpackages/*.rpm
 
 RUN mkdir /opt/jenkins
-COPY jenkins.war /opt/jenkins/jenkins.war
+COPY linuxpackages/jenkins.war /opt/jenkins/jenkins.war
 CMD ["/usr/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
 ```
 

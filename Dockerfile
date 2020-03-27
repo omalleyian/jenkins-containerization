@@ -10,5 +10,5 @@ RUN rpm -Uvh /linuxpackages/*.rpm
 
 # drop the Jenkins war file in a reasonable location and set it as the default command
 RUN mkdir /opt/jenkins
-COPY jenkins.war /opt/jenkins/jenkins.war
+COPY linuxpackages/jenkins.war /opt/jenkins/jenkins.war
 CMD ["/usr/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
