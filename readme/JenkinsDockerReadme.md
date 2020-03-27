@@ -33,7 +33,7 @@ mkdir packages
 #   created
 docker run -it -v "$(pwd)"/packages:/packages centos:centos7.7.1908 bash
 # The below command is run inside the container shell that just started
-yum install --downloadonly --downloaddir=/packages java-1.8.0-openjdk
+yum install --downloadonly --downloaddir=/packages java-1.8.0-openjdk git
 ```
 
 Now: all packages needed for Java and Jenkins to build the image are in your working directory

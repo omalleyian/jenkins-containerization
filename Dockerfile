@@ -7,7 +7,6 @@ USER root
 #   and then install them
 ADD packages /packages
 RUN rpm -Uvh /packages/*.rpm
-RUN yum install git -y
 
 # drop the Jenkins war file in a reasonable location and set it as the default command
 RUN mkdir /opt/jenkins
