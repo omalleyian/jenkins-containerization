@@ -28,12 +28,8 @@ This could be rolled into the Dockerfile. The image builds a lot faster when you
 
 ```bash
 mkdir packages
-# start up vanilla version of docker image we are basing our image on, note that
-#   we are running this command from the working directory where packages dir was
-#   created
-docker run -it -v "$(pwd)"/packages:/packages centos:centos7.7.1908 bash
-# The below command is run inside the container shell that just started
-yum install --downloadonly --downloaddir=/packages java-1.8.0-openjdk git
+# start up vanilla version of docker image we are basing our image on and download packages
+docker run -v "$(pwd)"/linuxpackages:/packages centos:centos7.7.1908 yum install --downloadonly --downloaddir=/packages java-1.8.0-openjdk git
 ```
 
 Now: all packages needed for Java and Jenkins to build the image are in your working directory
@@ -49,8 +45,8 @@ FROM centos:centos7.7.1908
 
 USER root
 
-ADD packages /packages
-RUN rpm -Uvh install /packages/*.rpm
+ADD linuxpackages /linuxpackages
+RUN rpm -Uvh install /linuxpackages/*.rpm
 
 RUN mkdir /opt/jenkins
 COPY jenkins.war /opt/jenkins/jenkins.war

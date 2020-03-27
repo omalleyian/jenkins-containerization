@@ -5,8 +5,8 @@ USER root
 
 # Grab packages this container would need and place them in mounted volume to save space
 #   and then install them
-ADD packages /packages
-RUN rpm -Uvh /packages/*.rpm
+ADD linuxpackages /linuxpackages
+RUN rpm -Uvh /linuxpackages/*.rpm
 
 # drop the Jenkins war file in a reasonable location and set it as the default command
 RUN mkdir /opt/jenkins
