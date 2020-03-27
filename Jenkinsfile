@@ -1,6 +1,6 @@
 
 pipeline {
-    agent any
+    agent {label 'app-server'}
     stages {
         stage('Build Services') {
             steps {
@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Build Client') {
             steps {
-                echo 'Building client.'
+                sh 'npm i'
+                sh 'npm run serve'
             }
         }
     }
