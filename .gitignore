@@ -23,6 +23,3 @@ geckodriver.log
 *.njsproj
 *.sln
 *.sw?
-
-# Build files
-/build
