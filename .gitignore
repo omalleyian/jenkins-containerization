@@ -24,3 +24,5 @@ geckodriver.log
 *.sln
 *.sw?
 
+# Build files
+/build
