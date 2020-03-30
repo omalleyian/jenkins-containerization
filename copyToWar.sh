@@ -15,12 +15,12 @@ fi
 sed -i -e "s|<context-root>.*<\/context-root>|<context-root>${PUBLIC_PATH}<\/context-root>|" ./WEB-INF/jboss-web.xml
 
 # Clean up old war
-rm -rf $WAR_NAME.war
+rm -rf build/$WAR_NAME.war
 
 # Hop into the dist and package it up
 pushd ./dist
-zip -r9 ../$WAR_NAME.war ./*
+zip -r9 ../build/$WAR_NAME.war ./*
 popd
 
 # Add the JBOSS WEB-INF stuff
-zip -ur9 ./$WAR_NAME.war ./WEB-INF
+zip -ur9 ./build/$WAR_NAME.war ./WEB-INF
