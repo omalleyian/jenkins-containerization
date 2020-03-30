@@ -1,6 +1,1 @@
-module.exports = { 
-    devServer: { 
-        host: "localhost" 
-    },
-    publicPath: "/monster-slayer"
-}
+module.exports = { devServer: { host: "localhost" } }

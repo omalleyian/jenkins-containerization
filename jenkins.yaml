@@ -1,0 +1,117 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - basicSSHUserPrivateKey:
+          id: "app-server"
+          privateKeySource:
+            directEntry:
+              privateKey: "{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}"
+          scope: GLOBAL
+          username: "jenkins"
+      - usernamePassword:
+          description: "github creds"
+          id: "github_creds"
+          password: "{AQAAABAAAAAw1eEOFNQf+YoIN95KOtLUltgR8ysbcVVSUOnbVw7UGO/fSBXoPWzOKC2+3lxI7ZRXf6+OU01Ou0lA2VpyJwa6Nw==}"
+          scope: GLOBAL
+          username: "jmobley09"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+      - "Overall/Administer:authenticated"
+      - "Overall/Administer:eric"
+      - "Overall/Administer:josh"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodes:
+  - permanent:
+      labelString: "app-server"
+      launcher:
+        ssh:
+          credentialsId: "app-server"
+          host: "34.66.129.27"
+          port: 22
+          sshHostKeyVerificationStrategy:
+            manuallyTrustedKeyVerificationStrategy:
+              requireInitialManualTrust: true
+      name: "app-server"
+      numExecutors: 1
+      remoteFS: "/home/jenkins"
+      retentionStrategy: "always"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  slaveAgentPort: -1
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
+unclassified:
+  buildStepOperation:
+    enabled: false
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+  extendedEmailPublisher:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: 0
+    precedenceBulk: false
+    useSsl: false
+    watchingEnabled: false
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://35.238.56.244:8080/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "http://35.238.56.244:8080/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+  pollSCM:
+    pollingThreadCount: 10
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
