@@ -2,6 +2,7 @@
 // Refer to the online docs for more details: https://nightwatchjs.org/gettingstarted/configuration/
 const Services = {}; loadServices();
 const chromedriver = require('chromedriver');
+const geckodriver = require('geckodriver');
 
 module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;
@@ -22,8 +23,10 @@ module.exports = {
 
   webdriver: {
     "start_process": true,
-    "server_path": chromedriver.path,
-    "port": 9515
+    // "server_path": chromedriver.path,
+    "server_path": geckodriver.path,
+    // "port": 9515
+    "port": 4444
   },
 
   test_settings: {
@@ -38,7 +41,8 @@ module.exports = {
       }, */
 
       desiredCapabilities: {
-        browserName : 'chrome'
+        // browserName : 'chrome'
+        browserName : 'firefox'
       }/* ,
 
       webdriver: {
