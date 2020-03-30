@@ -32,21 +32,6 @@ jenkins:
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
-  nodes:
-  - permanent:
-      labelString: "app-server"
-      launcher:
-        ssh:
-          credentialsId: "app-server"
-          host: "34.66.129.27"
-          port: 22
-          sshHostKeyVerificationStrategy:
-            manuallyTrustedKeyVerificationStrategy:
-              requireInitialManualTrust: true
-      name: "app-server"
-      numExecutors: 1
-      remoteFS: "/home/jenkins"
-      retentionStrategy: "always"
   numExecutors: 2
   primaryView:
     all:
