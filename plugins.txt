@@ -65,7 +65,6 @@ git
 github
 github-branch-source
 pipeline-github-lib
-zip
 mapdb-api
 subversion
 ssh-slaves
