@@ -29,8 +29,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-            echo 'Deploying to JBOSS'
-            sh 'sudo mv /home/jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
+            steps {
+                echo 'Deploying to JBOSS'
+                sh 'sudo mv /home/jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
+            }
         }
     }
 }
