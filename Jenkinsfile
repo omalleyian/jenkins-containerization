@@ -9,6 +9,8 @@ pipeline {
         }
         stage('Build Services') {
             steps {
+                echo "$WORKSPACE"
+                echo "$JENKINS_HOME"
                 echo 'Building all necessary services.'
             }
         }
