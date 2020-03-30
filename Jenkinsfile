@@ -3,9 +3,11 @@ pipeline {
     agent { label 'app-server' }
     stages {
         stage ('Starting JBOSS') {
-            def isRunning = sh(script: 'sudo systemctl is-active jboss-eap-rhel', returnStdout: true)
+            steps {
+                 def isRunning = sh(script: 'sudo systemctl is-active jboss-eap-rhel', returnStdout: true)
             if (!isRunning) {
                 sh 'sudo systemctl status jboss-eap-rhel'
+                }
             }
         }
         stage('Git Pull') {
@@ -28,7 +30,7 @@ pipeline {
     post {
         success {
             echo 'Deploying to JBOSS'
-            sh 'mv /jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
+            sh 'sudo mv /jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
         }
     }
 }
