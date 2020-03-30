@@ -4,9 +4,11 @@ pipeline {
     stages {
         stage ('Starting JBOSS') {
             steps {
-                 def isRunning = sh(script: 'sudo systemctl is-active jboss-eap-rhel', returnStdout: true)
-            if (!isRunning) {
-                sh 'sudo systemctl status jboss-eap-rhel'
+                script {
+                    def isRunning = sh(script: 'sudo systemctl is-active jboss-eap-rhel', returnStdout: true)
+                    if (!isRunning) {
+                        sh 'sudo systemctl status jboss-eap-rhel'
+                    }
                 }
             }
         }
