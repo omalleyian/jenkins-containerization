@@ -1,7 +1,13 @@
 
 pipeline {
-    agent {label 'app-server'}
+    agent { label 'app-server' }
     stages {
+        stage ('Starting JBOSS') {
+            def isRunning = sh(script: 'sudo systemctl is-active jboss-eap-rhel', returnStdout: true)
+            if (!isRunning) {
+                sh 'sudo systemctl status jboss-eap-rhel'
+            }
+        }
         stage('Git Pull') {
             steps{
                 git 'https://github.com/esmithdev8/jenkins-containerization.git'
@@ -17,6 +23,12 @@ pipeline {
                 sh 'npm i'
                 sh 'npm run build'
             }
+        }
+    }
+    post {
+        success {
+            echo 'Deploying to JBOSS'
+            sh 'mv /jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
         }
     }
 }
