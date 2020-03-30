@@ -28,11 +28,9 @@ pipeline {
                 sh 'npm run build'
             }
         }
-    }
-    post {
-        success {
+        stage('Deploy') {
             echo 'Deploying to JBOSS'
-            sh 'sudo mv /jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
+            sh 'sudo mv /home/jenkins/workspace/client_master/build/monster-slayer.war /opt/jboss-eap/standalone/deployments'
         }
     }
 }
