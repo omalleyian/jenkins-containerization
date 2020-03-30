@@ -22,7 +22,9 @@ pipeline {
             steps {
                 echo 'Deploying to JBOSS'
                 sh 'sudo /opt/jboss-eap/bin/./jboss-cli.sh -c'
-                sh 'deployment deploy-file /home/jenkins/workspace/client_jboss-deploy/build/monster-slayer.war'
+                timeout(time: 30, unit: 'SECONDS') {
+                    sh 'deployment deploy-file /home/jenkins/workspace/client_jboss-deploy/build/monster-slayer.war'
+                }
             }
         }
     }
