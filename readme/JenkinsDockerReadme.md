@@ -1,18 +1,6 @@
-# Contents
-
-- [Contents](#contents)
-- [Overview](#overview)
-- [Setup](#setup)
-  - [Download Jenkins](#download-jenkins)
-  - [Download Packages](#download-packages)
-- [Create and Run Image](#create-and-run-image)
-  - [Dockerfile](#dockerfile)
-  - [Build](#build)
-  - [Run Container](#run-container)
-
 # Overview
 
-Setup, build, and deploy of Docker Jenkins container.
+MASSIVELY SIMPLIFIED
 
 # Setup
 
@@ -62,11 +50,14 @@ CMD ["/usr/bin/java", "-jar", "/opt/jenkins/jenkins.war"]
 
 Build with a tag (not this one over and over) against current directory Dockerfile
 
-`docker build -t jenkins:latest .`
+Copy the Dockerfile-centos to Dockerfile-centos7.
 
-## Run Container
+Edit the first line in the file `FROM centos` to specify a centos7 tag.
 
-Run the container. Note the options for two bind mount "volumes" and a port
+Build with this command:  
+`docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
 
-`docker run -d -v /bin/docker:/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080/tcp jenkins:latest`
+# Run
 
+Example command:  
+`docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins:centos7`
