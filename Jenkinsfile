@@ -1,6 +1,6 @@
 
 pipeline {
-    agent {label 'app-server'}
+    agent { label 'app-server' }
     stages {
         stage('Git Pull') {
             steps{
@@ -16,6 +16,12 @@ pipeline {
             steps {
                 sh 'npm i'
                 sh 'npm run build'
+            }
+        }
+        stage('Deploy to Jboss') {
+            steps {
+                echo 'Deploying to JBOSS'
+                sh 'sudo /opt/jboss-eap/bin/./jboss-cli.sh -c --commands="deploy /home/jenkins/workspace/client_master/build/monster-slayer.war --force"'
             }
         }
     }
