@@ -51,6 +51,7 @@ USER root
 
 ADD packages /packages
 RUN rpm -Uvh install /packages/*.rpm
+RUN yum install git -y
 
 RUN mkdir /opt/jenkins
 COPY jenkins.war /opt/jenkins/jenkins.war
