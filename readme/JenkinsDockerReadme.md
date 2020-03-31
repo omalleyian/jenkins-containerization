@@ -2,19 +2,71 @@
 
 MASSIVELY SIMPLIFIED
 
-# Setup
-
-Fork the primary Jenkins docker repo at https://github.com/jenkinsci/docker and clone it.
-
-Copy the Dockerfile-centos to Dockerfile-centos7.
-
-Edit the first line in the file `FROM centos` to specify a centos7 tag.
-
-Build with this command:
-`docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
-
-# Run
+## Run
 
 Example command:
 `docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins:centos7`
 
+## Images Breakdown
+
+- Basics
+
+  - Flow of images OS > Basic > CASC
+  
+  - Seperated out to keep changes to any one single image minimal
+
+### OS Image
+
+- Used to update the version of operating system we are using
+
+- Keeps OS updates seperate from software or package updates
+
+### Basic Image
+
+- When building titled as basicjenkins:version tag. Example" `basicjenkins:v1`
+
+- Docker image that is being built by our team. It is a fork off the jenkins docker project
+
+- Jenkins docker project is being built with Centos 7 instead of Debian
+
+- When building containers, you should use this image as the base for building new images
+
+- Uses the OS image as its base, pulls that image in and builds off it
+
+#### Setup
+
+1. Fork the primary Jenkins docker repo at https://github.com/jenkinsci/docker and clone it.
+
+2. Copy the Dockerfile-centos to Dockerfile-centos7.
+
+3. Edit the first line in the file with a valid centos7 tag. Example: `FROM centos:centos7.7.1908`
+
+4. Build with this command: `docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
+
+- **NOTE**: the tag specifies the build name and version > `name:tag`  
+
+### CASC Image
+
+- When building titled as jenkinscasc:version tag. Example" `jenkinscasc:v1`
+
+- Image being used to store every iteration of the Jenkins Configuration as Code (CASC)
+
+- Each time a change is made to this project the version will be incremented
+
+- Only "good" versions should be tagged, meaning no development tags
+
+- Change log needs to be updated with each change if a version is being incremented
+
+#### Building Container
+
+1. Go to repository that has Dockerfile for CASC
+
+2. Build new image for that repository: `docker build -t jenkinscasc:v1 .`
+
+3. Run the container with the following command: `docker run --name jenkinscasc -v /bin/docker:/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /root/.ssh/:/jenkins/.ssh -p 8080:8080/tcp -p 5000:5000 jenkinscasc:v1`
+
+##### NOTES ABOUT THE RUN COMMAND
+
+- `-v` is used to specify voluems that are mounted from the host. Docker is mounted so that jenkins can create sibling containers
+
+- `-p` flag is used to map ports from the container to the host, the port will still need to be exposed to the host from inside the dockerfile
