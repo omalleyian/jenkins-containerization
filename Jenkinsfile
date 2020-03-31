@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
-                sh "sudo ${env.jbossHome}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
+                sh "sudo ${JBOSS_HOME}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
             }
         }
     }
