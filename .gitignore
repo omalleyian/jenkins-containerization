@@ -24,5 +24,9 @@ geckodriver.log
 *.sln
 *.sw?
 
+# Selenium related.
 selenium-server.log
 output/reports/
+
+# Build files
+/build
