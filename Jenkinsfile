@@ -1,8 +1,7 @@
 
 pipeline {
     environment {
-        JBOSS_HOME = '/opt/jboss-eap'
-        CLIENT_WORKSPACE = "${WORKSPACE}"
+        JBOSS_HOME = '/opt/jboss-eap' 
     }
     agent { label 'app-server' }
     stages {
@@ -28,7 +27,6 @@ pipeline {
             steps {
                 echo 'Deploying to JBOSS'
                 sh 'npm run deploy'
-                // sh 'sudo /opt/jboss-eap/bin/./jboss-cli.sh -c --commands="deploy /home/jenkins/workspace/client_master/build/monster-slayer.war --force"'
             }
         }
     }
