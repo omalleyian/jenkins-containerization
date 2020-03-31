@@ -37,8 +37,8 @@ docker run --name jenkinscasc \
 2. Copy the Dockerfile-centos to Dockerfile-centos7.
 3. Edit the first line in the file with a valid centos7 tag. Example: `FROM centos:centos7.7.1908`
 4. Find the line defining the version of Jenkins to install and set it to the current latest LTS version by changing the version number and the sha256 checksum
-  - Current LTS version identifier can be found [here](https://jenkins.io/download/)
-  - sha256 is [here](https://updates.jenkins-ci.org/download/war/)
+  1. Current LTS version identifier can be found [here](https://jenkins.io/download/)
+  2. sha256 is [here](https://updates.jenkins-ci.org/download/war/)
 5. Build with this command: `docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
 
 - **NOTE**: the tag specifies the build name and version > `name:tag`.
