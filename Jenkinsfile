@@ -2,6 +2,7 @@
 pipeline {
     environment {
         JBOSS_HOME = '/opt/jboss-eap'
+        CLIENT_WORKSPACE = "${WORKSPACE}"
     }
     agent { label 'app-server' }
     stages {
