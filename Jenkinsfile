@@ -23,7 +23,8 @@ pipeline {
         stage('Deploy to Jboss') {
             steps {
                 echo 'Deploying to JBOSS'
-                sh 'sudo /opt/jboss-eap/bin/./jboss-cli.sh -c --commands="deploy /home/jenkins/workspace/client_master/build/monster-slayer.war --force"'
+                sh 'npm run deploy'
+                // sh 'sudo /opt/jboss-eap/bin/./jboss-cli.sh -c --commands="deploy /home/jenkins/workspace/client_master/build/monster-slayer.war --force"'
             }
         }
     }
