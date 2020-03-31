@@ -1,7 +1,7 @@
 
 pipeline {
     agent { label 'app-server' }
-    envrionment {
+    environment {
         jbossHome = '/opt/jboss-eap/bin'
         projectDirectory = '/home/jenkins/workspace/client_master/build'
     }
