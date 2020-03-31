@@ -1,6 +1,6 @@
 
 pipeline {
-    environemnt {
+    environment {
         JBOSS_HOME = '/opt/jboss-eap'
     }
     agent { label 'app-server' }
