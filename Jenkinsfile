@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Git Pull') {
             steps{
-                git 'https://github.com/esmithdev8/jenkins-containerization.git'
+                sh 'printenv'
+                git branch: ${BRANCH_NAME},
+                    url: 'https://github.com/esmithdev8/jenkins-containerization.git'
             }
         }
         stage('Build Services') {
             steps {
-                echo "$WORKSPACE"
-                echo "$JENKINS_HOME"
                 echo 'Building all necessary services.'
             }
         }
