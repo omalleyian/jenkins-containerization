@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Git Pull') {
             steps{
-                git ${env.gitRepository}
+                git "${env.gitRepository}"
             }
         }
         stage('Build Services') {
