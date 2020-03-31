@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "nightwatch",
-    "deploy": "$JBOSS_HOME/bin/jboss-cli.sh -c --command='deploy ${env.WORKSPACE}/workspace/jenkins-containerization/dist/monster-slayer.war'"
+    "deploy": "sudo $JBOSS_HOME/bin/jboss-cli.sh -c --command='deploy ${env.WORKSPACE}/workspace/jenkins-containerization/dist/monster-slayer.war'"
   },
   "dependencies": {
     "chromedriver": "^80.0.1",
