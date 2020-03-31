@@ -25,7 +25,4 @@ geckodriver.log
 *.sw?
 
 selenium-server.log
-output/reports/appTest.xml
-output/reports/CHROME_80.0.3987.149_Windows_appTest.xml
-output/reports/FIREFOX_72.0.2_10.0_appTest.xml
-output/reports/INTERNET_EXPLORER_11__appTest.xml
+output/reports/
