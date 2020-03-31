@@ -3,7 +3,7 @@ pipeline {
     agent { label 'app-server' }
     environment {
         jbossHome = '/opt/jboss-eap/bin'
-        projectDirectory = '/home/jenkins/workspace/client_master/build'
+        projectDirectory = '/home/jenkins/workspace/client_NightwishAndFirefox/build'
         gitRepository = 'https://github.com/esmithdev8/jenkins-containerization.git'
     }
     stages {
@@ -17,9 +17,10 @@ pipeline {
                 echo 'Building all necessary services.'
             }
         }
-        stage('Installing Dependencies') {
+        stage('Build Client') {
             steps {
                 sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('End-to-end Testing') {
@@ -30,7 +31,6 @@ pipeline {
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
-                sh 'npm run build'
                 sh "sudo ${env.jbossHome}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
             }
         }
