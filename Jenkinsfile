@@ -5,7 +5,7 @@ pipeline {
         stage('Git Pull') {
             steps{
                 sh 'printenv'
-                git branch: ${BRANCH_NAME},
+                git branch: "${BRANCH_NAME}",
                     url: 'https://github.com/esmithdev8/jenkins-containerization.git'
             }
         }
