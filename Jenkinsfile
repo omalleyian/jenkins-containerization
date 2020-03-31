@@ -4,11 +4,12 @@ pipeline {
     environment {
         jbossHome = '/opt/jboss-eap/bin'
         projectDirectory = '/home/jenkins/workspace/client_master/build'
+        gitRepository = 'https://github.com/esmithdev8/jenkins-containerization.git'
     }
     stages {
         stage('Git Pull') {
             steps{
-                git 'https://github.com/esmithdev8/jenkins-containerization.git'
+                git ${env.gitRepository}
             }
         }
         stage('Build Services') {
@@ -25,7 +26,7 @@ pipeline {
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
-                sh "sudo ${JBOSS_HOME}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
+                sh "sudo ${env.jbossHome}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
             }
         }
     }
