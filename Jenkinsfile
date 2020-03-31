@@ -1,5 +1,8 @@
 
 pipeline {
+    environemnt {
+        JBOSS_HOME "/opt/jboss-eap"
+    }
     agent { label 'app-server' }
     stages {
         stage('Git Pull') {
