@@ -1,6 +1,6 @@
 # Run
 
-Typical usage of our image will like this command. The details of what the command does are listed at the end of this doc.
+Typical usage of our image will simply be this command. The details of what the command does are listed at the end of this doc.
 
 `docker run --name jenkinscasc -v /bin/docker:/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /root/.ssh/:/jenkins/.ssh -p 8080:8080/tcp -p 5000:5000 jenkinscasc:v1`
 
