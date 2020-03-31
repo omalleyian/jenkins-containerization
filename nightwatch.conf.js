@@ -3,6 +3,8 @@
 const Services = {}; loadServices();
 const chromedriver = require('chromedriver');
 const geckodriver = require('geckodriver');
+const seleniumdriver = require('selenium-webdriver');
+const seleinumserverstandalonedriver = require('selenium-server-standalone');
 
 module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;
@@ -20,29 +22,51 @@ module.exports = {
 
   // See https://nightwatchjs.org/guide/#external-globals
   globals_path : '', */
-
-  webdriver: {
+  selenium: {
     "start_process": true,
-    // "server_path": chromedriver.path,
-    "server_path": geckodriver.path,
-    // "port": 9515
-    "port": 4444
+    // "server_path": seleinumserverstandalonedriver.path,
+    // "server_path": "/node_modules/selenium-server/bin/selenium",
+    "server_path": "/node_modules/selenium-server/lib/runner/selenium-server-standalone-3.141.59.jar",
+    "log_path": "",
+    // "host": "127.0.0.1",
+    "port": 4444,
+    "cli_args": {
+        "webdriver.chrome.driver": chromedriver.path,
+        "webdriver.gecko.driver": geckodriver.path
+    }
   },
-
+  // webdriver: {
+  //   "start_process": true,
+  //   // "server_path": chromedriver.path,
+  //   // "server_path": geckodriver.path,
+  //   // "server_path": seleniumdriver.path,
+  //   // "server_path": "./node_modules/selenium-server-standalone",
+  //   "server_path": seleinumserverstandalonedriver.path,
+  //   // "port": 9515
+  //   "port": 4444
+  // },
+  test_workers: {
+      enabled: true,
+      workers: "auto"
+  },
   test_settings: {
     default: {
-      /* disable_error_log: false,
-      launch_url: 'https://nightwatchjs.org',
-
+      // disable_error_log: false,
+      // launch_url: 'https://nightwatchjs.org',
+      launch_url: "http://localhost",
+      selenium_port: 4444,
+      selenium_host: "localhost",
+      silent: true,
       screenshots: {
         enabled: false,
-        path: 'screens',
-        on_failure: true
-      }, */
+        path: ""
+        // path: 'screens',
+        // on_failure: true
+      },
 
       desiredCapabilities: {
-        // browserName : 'chrome'
-        browserName : 'firefox'
+        browserName : 'chrome'
+        // browserName : 'firefox'
       }/* ,
 
       webdriver: {
@@ -56,6 +80,7 @@ module.exports = {
     firefox: {
       desiredCapabilities : {
         browserName : 'firefox',
+        marionette: true,
         alwaysMatch: {
           // Enable this if you encounter unexpected SSL certificate errors in Firefox
           // acceptInsecureCerts: true,
@@ -70,7 +95,7 @@ module.exports = {
       webdriver: {
         start_process: true,
         port: 4444,
-        server_path: (Services.geckodriver ? Services.geckodriver.path : ''),
+        server_path: geckodriver.path,
         cli_args: [
           // very verbose geckodriver logs
           // '-vv'
@@ -97,7 +122,7 @@ module.exports = {
       webdriver: {
         start_process: true,
         port: 9515,
-        server_path: (Services.chromedriver ? Services.chromedriver.path : ''),
+        server_path: chromedriver.path,
         cli_args: [
           // --verbose
         ]
@@ -179,8 +204,8 @@ module.exports = {
         port: 4444,
         server_path: (Services.seleniumServer ? Services.seleniumServer.path : ''),
         cli_args: {
-          'webdriver.gecko.driver': (Services.geckodriver ? Services.geckodriver.path : ''),
-          'webdriver.chrome.driver': (Services.chromedriver ? Services.chromedriver.path : '')
+          'webdriver.gecko.driver': geckodriver.path,
+          'webdriver.chrome.driver': chromedriver.path
         }
       }
     },
