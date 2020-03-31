@@ -23,6 +23,11 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('End-to-end Testing') {
+            steps {
+                sh 'npm run testAll'
+            }
+        }
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
