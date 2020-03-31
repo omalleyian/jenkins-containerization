@@ -39,10 +39,12 @@ docker run --name jenkinscasc \
 4. Find the line defining the version of Jenkins to install and set it to the current latest LTS version by changing the version number and the sha256 checksum
     - Current LTS version identifier can be found [here](https://jenkins.io/download/)
     - sha256 is [here](https://updates.jenkins-ci.org/download/war/)
-5. Build with this command: `docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
-
-- **NOTE**: the tag specifies the build name and version > `name:tag`.
-- **NOTE 2**: at this point, we have a basic Jenkins image that could be run with this command `docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins:centos7`. However, we are going to make additions to this image.
+5. Build a centos7 image
+    1. Build with this command: `docker build -t jenkins:centos7 -f Dockerfile-centos7 .`
+    2. Additional notes
+        1. An example of this change to the Dockerfile and changes needed to build with RHEL7 (UBI) are [here](https://github.com/nafhn/docker/)
+        2. the tag specifies the build name and version > `name:tag`.
+        3. at this point, we have a basic Jenkins image that could be run with this command `docker run --name myjenkins -p 8080:8080 -p 50000:50000 jenkins:centos7`. However, we are going to make additions to this image.
 
 ## CASC Image
 
