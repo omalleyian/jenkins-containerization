@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="appTest"
+    errors="1" failures="0" hostname="" id="" package="appTest" skipped="0"
+    tests="1" time="5.666" timestamp="">
+  
+    <testcase name="Test Case" classname="appTest" time="5.666" assertions="0">
+      <error message="Error while trying to create HTTP request for &#34;/wd/hub/session/f45f7c050a9848bf090f1868f52ecf70/element/[object Object]/displayed&#34;: Request path contains unescaped characters" type="error">TypeError [ERR_UNESCAPED_CHARACTERS]: Request path contains unescaped characters
+    at new ClientRequest (_http_client.js:149:13)
+    at Object.request (http.js:46:10)
+    at HttpRequest.createHttpRequest (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\http\request.js:138:55)
+    at HttpRequest.send (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\http\request.js:217:29)
+    at C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\transport\transport.js:193:15
+    at new Promise (&lt;anonymous&gt;)
+    at Selenium2Protocol.sendProtocolAction (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\transport\transport.js:191:12)
+    at Selenium2Protocol.runProtocolAction (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\transport\jsonwire.js:61:17)
+    at Object.isElementDisplayed (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\transport\actions.js:54:10)
+    at Selenium2Protocol.executeProtocolAction (C:\Users\Daniel Bennett\jenkins-containerization\node_modules\nightwatch\lib\transport\transport.js:239:48)</error>
+    
+    </testcase>
+  
+
+  
+    <system-err>
+      [0;31m  TypeError: Error while trying to create HTTP request for &#34;/wd/hub/session/f45f7c050a9848bf090f1868f52ecf70/element/[object Object]/displayed&#34;: Request path contains unescaped characters[0m
+[0;90m       at new ClientRequest (_http_client.js:149:13)
+       at Object.request (http.js:46:10)
+       at new Promise (&lt;anonymous&gt;)[0m
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>
