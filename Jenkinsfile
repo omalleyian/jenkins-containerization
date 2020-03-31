@@ -17,15 +17,15 @@ pipeline {
                 echo 'Building all necessary services.'
             }
         }
+         stage('End-to-end Testing') {
+            steps {
+                sh 'npm run testAll'
+            }
+         }
         stage('Build Client') {
             steps {
                 sh 'npm i'
                 sh 'npm run build'
-            }
-        }
-        stage('End-to-end Testing') {
-            steps {
-                sh 'npm run testAll'
             }
         }
         stage('Deploy to JBOSS') {
