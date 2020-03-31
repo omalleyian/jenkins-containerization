@@ -1,15 +1,15 @@
 
 pipeline {
+    agent { label 'app-server' }
     environment {
         JBOSS_HOME = '/opt/jboss-eap' 
     }
-    agent { label 'app-server' }
     stages {
         stage('Git Pull') {
             steps{
                 sh 'printenv'
                 git branch: "${BRANCH_NAME}",
-                    url: 'https://github.com/esmithdev8/jenkins-containerization.git'
+                    url: "${GIT_URL}"
             }
         }
         stage('Build Services') {
@@ -23,7 +23,7 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        stage('Deploy to Jboss') {
+        stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
                 sh 'npm run deploy'
