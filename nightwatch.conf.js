@@ -37,8 +37,8 @@ module.exports = {
         marionette: true,
         javascriptEnabled: true,
         acceptSslCerts: true,
-        headlessFirefoxOptions: {
-            args: ['headless']
+        "moz:firefoxOptions": {
+            args: ['-headless']
         }
       }
     },
