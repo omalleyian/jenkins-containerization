@@ -1,6 +1,10 @@
 
 pipeline {
     agent { label 'app-server' }
+    envrionment {
+        jbossHome = '/opt/jboss-eap/bin'
+        projectDirectory = '/home/jenkins/workspace/client_master/build'
+    }
     stages {
         stage('Git Pull') {
             steps{
@@ -21,7 +25,7 @@ pipeline {
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
-                sh 'sudo ${JBOSS_HOME}/./jboss-cli.sh -c --commands="deploy ${PROJECT_DIR}/monster-slayer.war --force"'
+                sh 'sudo ${env.jbossHome}/./jboss-cli.sh -c --commands="deploy ${env.projectDirectory}/monster-slayer.war --force"'
             }
         }
     }
