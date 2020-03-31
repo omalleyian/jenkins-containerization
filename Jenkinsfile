@@ -17,20 +17,20 @@ pipeline {
                 echo 'Building all necessary services.'
             }
         }
-         stage('End-to-end Testing') {
+        stage('Installing Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('End-to-end Testing') {
             steps {
                 sh 'npm run testAll'
             }
          }
-        stage('Build Client') {
-            steps {
-                sh 'npm i'
-                sh 'npm run build'
-            }
-        }
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
+                sh 'npm run build'
                 sh "sudo ${env.jbossHome}/./jboss-cli.sh -c --commands=\"deploy ${env.projectDirectory}/monster-slayer.war --force\""
             }
         }
