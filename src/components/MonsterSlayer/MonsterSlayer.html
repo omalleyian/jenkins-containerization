@@ -6,31 +6,31 @@
 <body>
 <div id="app">
     <section class="row">
-        <div class="small-6 columns">
-            <h1 class="text-center">YOU</h1>
+        <div class="small-6 columns" id="you-score-section">
+            <h1 class="text-center" id="you-header">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" :style="playerHealthBar" style="background-color: green; margin: 0; color: white;">
+                <div id="player-health" class="healthbar text-center" :style="playerHealthBar" style="background-color: green; margin: 0; color: white;">
 					{{ health }}
                 </div>
             </div>
         </div>
-        <div class="small-6 columns">
-            <h1 class="text-center">MONSTER</h1>
+        <div class="small-6 columns" id="monster-score-section">
+            <h1 class="text-center" id="monster-header">MONSTER</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" :style="monsterHealthBar" style="background-color: green; margin: 0; color: white;">
+                <div id="monster-health" class="healthbar text-center" :style="monsterHealthBar" style="background-color: green; margin: 0; color: white;">
 					{{ monsterHealth }}
                 </div>
             </div>
         </div>
     </section>
-		<section v-if="!gameStart" class="row controls">
+		<section v-if="!gameStart" class="row controls" id="game-start-section">
 			<div class="small-12 columns">
 				<button id="start-game" @click="startGame">START NEW GAME</button>
 			</div>
 		</section>
 	<template v-else>
 		<section class="row controls">
-			<div class="small-12 columns">
+			<div class="small-12 columns" id="game-score-section">
 				<button id="attack" @click="attack()">ATTACK</button>
 				<button id="special-attack" @click="specialAttack()">SPECIAL ATTACK</button>
 				<button id="heal" @click="heal()">HEAL</button>
@@ -38,7 +38,7 @@
 			</div>
 		</section>
 		<section class="row log">
-			<div class="small-12 columns">
+			<div class="small-12 columns" id="row-log">
 				<ul>
 					<div v-for="(move, index) in movesList" :key="index">
 						<li v-if="move.character === 'player'" class="player-turn">  {{ move.move }} </li>
