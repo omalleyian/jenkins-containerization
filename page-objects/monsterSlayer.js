@@ -1,5 +1,5 @@
 module.exports = { 
-    url: 'http://35.223.154.181:8080/monster-slayer',
+    url: '35.223.154.181:8080/monster-slayer/',
     elements: {
         yourScoreSection: '#you-score-section',
         youHeader: '#you-header',
