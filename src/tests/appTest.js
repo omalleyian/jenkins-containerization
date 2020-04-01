@@ -1,4 +1,4 @@
-const browserURL = "http://34.66.129.27:8080/monster-slayer";
+const browserURL = "http://35.233.154.181:8080/monster-slayer";
 module.exports = {
     'Test For User'(browser) {
         browser.url(browserURL)
