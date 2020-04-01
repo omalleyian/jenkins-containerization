@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'npm run test'
+                echo 'skipping: sh npm run test'
             }
         }
         stage('Build Client') {
