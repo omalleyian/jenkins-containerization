@@ -19,7 +19,7 @@ export default {
 	mounted() {
         axios.get(`http://34.66.129.27:8080/dark-service/hello`)
         .then(response => {
-          this.serviceResult = response
+          this.serviceResult = response.data
         })
         .catch(e => {
           this.errors.push(e)
