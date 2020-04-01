@@ -5,19 +5,20 @@
 </head>
 <body>
 <div id="app">
+	<div id="hello">{{serviceResult}}</div>
     <section class="row">
         <div class="small-6 columns">
-            <h1 class="text-center">YOU</h1>
+            <h1 id="player" class="text-center">YOU</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" :style="playerHealthBar" style="background-color: green; margin: 0; color: white;">
+                <div id="player-health" class="healthbar text-center" :style="playerHealthBar" style="background-color: green; margin: 0; color: white;">
 					{{ health }}
                 </div>
             </div>
         </div>
         <div class="small-6 columns">
-            <h1 class="text-center">MONSTER</h1>
+            <h1 id="monster" class="text-center">MONSTER</h1>
             <div class="healthbar">
-                <div class="healthbar text-center" :style="monsterHealthBar" style="background-color: green; margin: 0; color: white;">
+                <div id="monster-health" class="healthbar text-center" :style="monsterHealthBar" style="background-color: green; margin: 0; color: white;">
 					{{ monsterHealth }}
                 </div>
             </div>

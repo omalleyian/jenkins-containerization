@@ -15,9 +15,9 @@ module.exports = {
         host: "localhost" 
     },
     publicPath: "/monster-slayer",
-    configureWebpack: {
+    /* configureWebpack: {
         plugins: [
             new WebpackWarPlugin(webpackWarPluginOptions)
         ]
-    }
+    } */
 }

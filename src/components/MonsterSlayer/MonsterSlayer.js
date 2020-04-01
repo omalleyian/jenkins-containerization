@@ -1,6 +1,9 @@
+//const axios = require('axios').default;
+import axios from 'axios';
 export default {
-	data: function() {
+    data: function() {
         return {
+			serviceResult: "Not Connected",
             gameStart: false,
             health: 100,
             monsterHealth: 100,
@@ -12,8 +15,17 @@ export default {
             }, 
             movesList: []
         };
-	},
-	methods: {
+    },
+	mounted() {
+        axios.get(`http://34.66.129.27:8080/dark-service/hello`)
+        .then(response => {
+          this.serviceResult = response
+        })
+        .catch(e => {
+          this.errors.push(e)
+		})
+    },
+    methods: {
 		startGame: function() {
 			this.gameStart = true;
 			this.movesList = [];
