@@ -19,7 +19,7 @@ pipeline {
         }
         stage('End-to-end Testing') {
             steps {
-                sh 'npm run testAll'
+                sh 'npm run test'
             }
         }
         stage('Build Client') {

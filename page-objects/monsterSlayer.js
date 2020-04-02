@@ -16,6 +16,7 @@ module.exports = {
         rowLog: '#row-log',
         playerTurn: '.player-turn',
         monsterTurn: '.monster-turn',
-        log: '#log'
+        log: '#log',
+        serviceMessage: '#service-message'
     }
 }

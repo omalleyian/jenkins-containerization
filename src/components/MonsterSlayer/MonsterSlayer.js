@@ -17,13 +17,7 @@ export default {
         };
     },
 	mounted() {
-        axios.get(`http://35.223.154.181:8080/dark-service/hello`)
-        .then(response => {
-          this.serviceResult = response.data
-        })
-        .catch(e => {
-          this.errors.push(e)
-		})
+        this.getMessage();
     },
     methods: {
 		startGame: function() {
@@ -68,6 +62,12 @@ export default {
 			attack = Math.round(attack);
 			this.health -= attack;
 			this.movesList.unshift({character: 'monster', move: 'MONSTER HIT THE PLAYER FOR ' + attack + ' HP'})
+		},
+		async getMessage() {
+			this.serviceResult = await axios.get(`http://localhost:3000`)//http://35.223.154.181:8080/dark-service/hello
+            .then(response => {
+              return response.data
+            })
 		}
 	},
 	watch: {

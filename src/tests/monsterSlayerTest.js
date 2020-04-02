@@ -1,4 +1,5 @@
 module.exports = {
+    '@tags': ['slayer'],
     beforeEach: browser => {
       browser.page.monsterSlayer()
         .navigate()
