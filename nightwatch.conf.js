@@ -1,5 +1,5 @@
 const GECKO_DRIVER = require('geckodriver');
-const IE_DRIVER = require('iedriver');
+//const IE_DRIVER = require('iedriver');
 const SELENIUM_SERVER = require('selenium-server');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     port: 4444,
     cli_args: {
       "webdriver.gecko.driver": GECKO_DRIVER.path,
-      "webdriver.ie.driver": IE_DRIVER.path
+//      "webdriver.ie.driver": IE_DRIVER.path
     }
   },
 
@@ -43,11 +43,11 @@ module.exports = {
         }
       }
     },
-    ie: {
-      desiredCapabilities: {
-        browserName: 'internet explorer',
-        javascriptEnabled: true
-      }
-    }
+//    ie: {
+//      desiredCapabilities: {
+//        browserName: 'internet explorer',
+//        javascriptEnabled: true
+//      }
+//    }
   }
 }
