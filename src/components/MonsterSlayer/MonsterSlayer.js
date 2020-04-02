@@ -64,7 +64,7 @@ export default {
 			this.movesList.unshift({character: 'monster', move: 'MONSTER HIT THE PLAYER FOR ' + attack + ' HP'})
 		},
 		async getMessage() {
-			this.serviceResult = await axios.get(`http://localhost:3000`)//http://35.223.154.181:8080/dark-service/hello
+			this.serviceResult = await axios.get(`35.223.154.181:8080/dark-service/hello`)
             .then(response => {
               return response.data
             })
