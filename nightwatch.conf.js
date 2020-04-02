@@ -4,7 +4,7 @@ const SELENIUM_SERVER = require('selenium-server');
 
 module.exports = {
   src_folders: ["src/tests"],
-  page_objects_path: ["page-objects"],
+  //page_objects_path: ["page-objects"],
   output_folder: "output/reports",
   parallel_process_delay: 10,
   "test_workers": {
