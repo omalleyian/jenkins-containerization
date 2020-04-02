@@ -15,6 +15,7 @@ module.exports = {
         gameScoreSection: '#game-score-section',
         rowLog: '#row-log',
         playerTurn: '.player-turn',
-        monsterTurn: '.monster-turn'
+        monsterTurn: '.monster-turn',
+        log: '#log'
     }
 }

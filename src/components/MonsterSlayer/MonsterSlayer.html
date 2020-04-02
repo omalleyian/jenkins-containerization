@@ -39,7 +39,7 @@
 		</section>
 		<section class="row log">
 			<div class="small-12 columns" id="row-log">
-				<ul>
+				<ul id="log">
 					<div v-for="(move, index) in movesList" :key="index">
 						<li v-if="move.character === 'player'" class="player-turn">  {{ move.move }} </li>
 						<li v-else class="monster-turn">  {{ move.move }} </li>
