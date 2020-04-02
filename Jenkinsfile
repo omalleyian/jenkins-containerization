@@ -12,22 +12,21 @@ pipeline {
                     url: "${GIT_URL}"
             }
         }
-        stage('Build Services') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Building all necessary services.'
-            }
-        }
-        stage('Build Client') {
-            steps {
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'npm i'
             }
         }
         stage('End-to-end Testing') {
             steps {
-                sh 'npm run testAll'
+                sh 'npm run test'
             }
-         }
+        }
+        stage('Build Client') {
+            steps {
+                sh 'npm run build'
+            }
+        }
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'

@@ -1,6 +1,9 @@
+//const axios = require('axios').default;
+import axios from 'axios';
 export default {
-	data: function() {
+    data: function() {
         return {
+            serviceResult: "Not Connected",
             gameStart: false,
             health: 100,
             monsterHealth: 100,
@@ -12,13 +15,16 @@ export default {
             }, 
             movesList: []
         };
-	},
-	methods: {
-		startGame: function() {
-			this.gameStart = true;
-			this.movesList = [];
-			this.health = 100;
-			this.monsterHealth = 100;
+    },
+	mounted() {
+        this.getMessage();
+    },
+    methods: {
+        startGame: function() {
+            this.gameStart = true;
+            this.movesList = [];
+            this.health = 100;
+            this.monsterHealth = 100;
 		},
 		endGame: function(reason) {
 			this.gameStart = false;
@@ -56,6 +62,12 @@ export default {
 			attack = Math.round(attack);
 			this.health -= attack;
 			this.movesList.unshift({character: 'monster', move: 'MONSTER HIT THE PLAYER FOR ' + attack + ' HP'})
+		},
+		async getMessage() {
+            this.serviceResult = await axios.get(`http://35.223.154.181:8080/dark-service/hello`)
+            .then(response => {
+              return response.data
+            })
 		}
 	},
 	watch: {

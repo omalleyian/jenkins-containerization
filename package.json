@@ -6,10 +6,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && ./copyToWar.sh",
     "lint": "vue-cli-service lint",
-    "testAll": "nightwatch -e headlessFirefox",
+    "test": "nightwatch -e headlessFirefox",
     "deploy": "sudo $JBOSS_HOME/bin/jboss-cli.sh -c --command='deploy ./build/monster-slayer.war --force'"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "chromedriver": "^80.0.1",
     "core-js": "^3.6.4",
     "geckodriver": "^1.19.1",
