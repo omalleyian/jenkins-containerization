@@ -1,7 +1,5 @@
 module.exports = { 
-    url: function() {
-        return this.api.launchUrl;
-    },
+    url: 'http://35.223.154.181:8080/monster-slayer',
     elements: {
         yourScoreSection: '#you-score-section',
         youHeader: '#you-header',
