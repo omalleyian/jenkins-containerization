@@ -2,7 +2,8 @@ module.exports = {
     beforeEach: browser => {
       browser.page.monsterSlayer()
         .navigate()
-        .waitForElementVisible('body')
+        .waitForElementVisible('body', 3000)
+        .windowMaximize()
     },
     afterEach: browser => {
         browser.end();
