@@ -19,10 +19,15 @@ pipeline {
         }
         stage('Build Client') {
             steps {
-                sh 'npm i'
+                sh 'npm install'
                 sh 'npm run build'
             }
         }
+        stage('End-to-end Testing') {
+            steps {
+                sh 'npm run testAll'
+            }
+         }
         stage('Deploy to JBOSS') {
             steps {
                 echo 'Deploying to JBOSS'
