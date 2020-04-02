@@ -14,13 +14,12 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                echo 'Installing all dependencies.'
                 sh 'npm i'
             }
         }
-        stage('Run Tests') {
+        stage('End-to-end Testing') {
             steps {
-                sh 'npm run test'
+                sh 'npm run testAll'
             }
         }
         stage('Build Client') {

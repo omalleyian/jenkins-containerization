@@ -1,10 +1,14 @@
 const GECKO_DRIVER = require('geckodriver');
+<<<<<<< HEAD
 //const IE_DRIVER = require('iedriver');
+=======
+const IE_DRIVER = require('iedriver');
+>>>>>>> master
 const SELENIUM_SERVER = require('selenium-server');
 
 module.exports = {
   src_folders: ["src/tests"],
-  //page_objects_path: ["page-objects"],
+  page_objects_path: ["page-objects"],
   output_folder: "output/reports",
   parallel_process_delay: 10,
   "test_workers": {
@@ -19,7 +23,7 @@ module.exports = {
     port: 4444,
     cli_args: {
       "webdriver.gecko.driver": GECKO_DRIVER.path,
-//      "webdriver.ie.driver": IE_DRIVER.path
+      "webdriver.ie.driver": IE_DRIVER.path
     }
   },
 
@@ -43,11 +47,11 @@ module.exports = {
         }
       }
     },
-//    ie: {
-//      desiredCapabilities: {
-//        browserName: 'internet explorer',
-//        javascriptEnabled: true
-//      }
-//    }
+    ie: {
+      desiredCapabilities: {
+        browserName: 'internet explorer',
+        javascriptEnabled: true
+      }
+    }
   }
 }
