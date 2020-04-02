@@ -17,7 +17,7 @@ export default {
         };
     },
 	mounted() {
-        axios.get(`http://35.233.154.181:8080/dark-service/hello`)
+        axios.get(`http://35.223.154.181:8080/dark-service/hello`)
         .then(response => {
           this.serviceResult = response.data
         })
