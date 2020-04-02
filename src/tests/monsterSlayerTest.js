@@ -54,7 +54,30 @@ module.exports = {
       .waitForElementVisible('@attackBtn', 1000)
       .click('@attackBtn')
       browser.elements('css selector', 'ul li', result => {
-        browser.assert.equal(result.value.length, 2, 'The log has two entries, one for monster, and one for player.');
+        browser.assert.equal(2, result.value.length, 'The log has two entries, one for monster, and one for player.');
       });
+    },
+
+    'Simulate the healing action': browser => {
+      browser.page.monsterSlayer()
+      .click('@startGameBtn')
+      .waitForElementVisible('@healBtn', 1000)
+      .click('@healBtn')
+      .assert.containsText('@playerTurn', 'PLAYER HEALED', 'Player heal recorded.');
+    },
+
+    'Simulate giving-up': browser => {
+      browser.page.monsterSlayer()
+      .click('@startGameBtn')
+      .waitForElementVisible('@giveUpBtn', 1000)
+      .click('@giveUpBtn')
+     
+      browser.pause(1000)
+      browser.getAlertText(result => {
+        browser.assert.equal('Coward!', result.value, 'The alert says Coward!')
+      });
+      browser.acceptAlert()
+      browser.page.monsterSlayer()
+      .assert.visible('@startGameBtn', 'The start game button is visible.')
     }
-  };
+  }
