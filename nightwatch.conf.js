@@ -1,9 +1,5 @@
 const GECKO_DRIVER = require('geckodriver');
-<<<<<<< HEAD
-//const IE_DRIVER = require('iedriver');
-=======
 const IE_DRIVER = require('iedriver');
->>>>>>> master
 const SELENIUM_SERVER = require('selenium-server');
 
 module.exports = {
