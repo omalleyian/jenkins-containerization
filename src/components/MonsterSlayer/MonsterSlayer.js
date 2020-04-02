@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
     data: function() {
         return {
-			serviceResult: "Not Connected",
+            serviceResult: "Not Connected",
             gameStart: false,
             health: 100,
             monsterHealth: 100,
@@ -20,11 +20,11 @@ export default {
         this.getMessage();
     },
     methods: {
-		startGame: function() {
-			this.gameStart = true;
-			this.movesList = [];
-			this.health = 100;
-			this.monsterHealth = 100;
+        startGame: function() {
+            this.gameStart = true;
+            this.movesList = [];
+            this.health = 100;
+            this.monsterHealth = 100;
 		},
 		endGame: function(reason) {
 			this.gameStart = false;
@@ -64,7 +64,7 @@ export default {
 			this.movesList.unshift({character: 'monster', move: 'MONSTER HIT THE PLAYER FOR ' + attack + ' HP'})
 		},
 		async getMessage() {
-			this.serviceResult = await axios.get(`35.223.154.181:8080/dark-service/hello`)
+            this.serviceResult = await axios.get(`http://35.223.154.181:8080/dark-service/hello`)
             .then(response => {
               return response.data
             })
