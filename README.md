@@ -10,7 +10,7 @@
     npm run test
 ```
 
-## Test single page element.  Two tags currently are available
+## Test single page file, Use a tag.  Two tags currently are available
 
 ```
     npm run test -- --tag [tag name] 
