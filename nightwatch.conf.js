@@ -25,9 +25,9 @@ module.exports = {
 
   test_settings: {
     default: {
-      launch_url: "http://localhost",
+      launch_url: "35.223.154.181:8080/monster-slayer/",
       selenium_port: 4444,
-      selenium_host: "localhost",
+      selenium_host: "35.223.154.181",
       desiredCapabilities: {
         browserName: "firefox",
       }
